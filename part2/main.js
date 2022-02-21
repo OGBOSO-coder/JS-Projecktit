@@ -30,7 +30,10 @@ function uusiListaElementti(event){
     }
 
     //array tähän
-
+    let uusiElementti = document.createElement('li')
+    let uusiElementtiTeksti = document.createTextNode(elementinNimi);
+    uusiElementti.appendChild(uusiElementtiTeksti)
+    uusiElementti.className = 'list-item';
     document.querySelector('#itemList').appendChild(uusiElementti)
 }
 
