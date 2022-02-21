@@ -2,39 +2,47 @@ const lomake = document.forms['formNewItem'];
 const itemList = document.getElementById('itemList');
 const jarjestys = document.getElementById('btnJarjesta');
 
-lomake.addEventListener('submit', uusiListaElementti)
+lomake.addEventListener('submit', uusiKaveri)
 itemList.addEventListener('click', iteminKlikkaus)
 jarjestys.addEventListener('click', jarjesta)
 
+const kaverit = [];
 
-
-
-
-
-
-
-
-
-
-
-
-function uusiListaElementti(event){
+function uusiKaveri(event){
 
     event.preventDefault()
 
-    let elementinNimi = document.querySelector('#main input[type="text"]').value;
+    let kaverinNimi = document.querySelector('#main input[type="text"]').value;
     
-    if(elementinNimi.length < 1){
+    if(kaverinNimi.length < 1){
         alert('Pitää antaa nimi')
         return;
     }
 
-    //array tähän
-    let uusiElementti = document.createElement('li')
-    let uusiElementtiTeksti = document.createTextNode(elementinNimi);
-    uusiElementti.appendChild(uusiElementtiTeksti)
-    uusiElementti.className = 'list-item';
-    document.querySelector('#itemList').appendChild(uusiElementti)
+    kaverit.push(kaverinNimi)
+
+    tulostaKaverit()
+
+}
+
+function tulostaKaverit(){
+    
+    document.querySelector('#itemList').innerHTML = ""
+
+    kaverit.forEach(kaveri => {
+        let uusiElementti = document.createElement('li')
+        let uusiElementtiTeksti = document.createTextNode(kaveri);
+        uusiElementti.appendChild(uusiElementtiTeksti)
+        uusiElementti.className = 'list-item';
+        document.querySelector('#itemList').appendChild(uusiElementti)
+    })
+
+    for (let i=0; i < kaverit.length; i++){
+        console.log(kaverit[i])
+    }
+
+
+    
 }
 
 function iteminKlikkaus(event){
