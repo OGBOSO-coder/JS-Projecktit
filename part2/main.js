@@ -1,10 +1,10 @@
 const lomake = document.forms['formNewItem'];
 const itemList = document.getElementById('itemList');
-const jarjestys = document.getElementById('button');
+const jarjestys = document.getElementById('btnJarjesta');
 
 lomake.addEventListener('submit', uusiListaElementti)
 itemList.addEventListener('click', iteminKlikkaus)
-jarjestys.addEventListener('button', jarjesta)
+jarjestys.addEventListener('click', jarjesta)
 
 
 
@@ -29,10 +29,7 @@ function uusiListaElementti(event){
         return;
     }
 
-    let uusiElementti = document.createElement('li')
-    let uusiElementtiTeksti = document.createTextNode(elementinNimi);
-    uusiElementti.appendChild(uusiElementtiTeksti)
-    uusiElementti.className = 'list-item';
+    //array tähän
 
     document.querySelector('#itemList').appendChild(uusiElementti)
 }
