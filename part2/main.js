@@ -1,53 +1,61 @@
-const lomake = document.forms['formNewItem'];
-const itemList = document.getElementById('itemList');
-const jarjestys = document.getElementById('btnJarjesta');
+function lisaKaveri() {
 
-lomake.addEventListener('submit', uusiListaElementti)
-itemList.addEventListener('click', iteminKlikkaus)
-jarjestys.addEventListener('click', jarjesta)
+    var ul = document.getElementById("lisaLista");
+    var nimi = document.getElementById("nimi");
+    var li = document.createElement("li");
+    li.setAttribute('id', nimi.value);
+    li.appendChild(document.createTextNode(nimi.value));
+    ul.appendChild(li);
+}
 
+function poistaKaveri() {
+    var ul = document.getElementById("lisaLista");
+    var nimi = document.getElementById("nimi");
+    var kappale = document.getElementById(nimi.value);
+    ul.removeChild(kappale);
+}
+function jarjestaKaveri() {
+    var lista, i, vaihtaminen, b, pitaaVaihtaa, suu, vaihtalaskeminen = 0;
+    lista = document.getElementById("lisaLista");
+    vaihtaminen = true;
 
+    suu = "nou";
 
+    while (vaihtaminen) {
 
+        vaihtaminen = false;
+        b = lista.getElementsByTagName("LI");
 
+        for (i = 0; i < (b.length - 1); i++) {
 
+            pitaaVaihtaa = false;
 
+            if (suu == "nou") {
+                if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
 
+                    pitaaVaihtaa = true;
+                    break;
+                }
+            } else if (suu == "nou") {
+                if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
 
+                    pitaaVaihtaa = true;
+                    break;
+                }
+            }
+        }
+        if (pitaaVaihtaa) {
 
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            vaihtaminen = true;
 
+            vaihtalaskeminen++;
+        } else {
 
-
-function uusiListaElementti(event){
-
-    event.preventDefault()
-
-    let elementinNimi = document.querySelector('#main input[type="text"]').value;
-    
-    if(elementinNimi.length < 1){
-        alert('Pitää antaa nimi')
-        return;
+            if (vaihtalaskeminen == 0 && suu == "nou") {
+                suu = "nou";
+                vaihtaminen = true;
+            }
+        }
     }
-
-    //array tähän
-    let uusiElementti = document.createElement('li')
-    let uusiElementtiTeksti = document.createTextNode(elementinNimi);
-    uusiElementti.appendChild(uusiElementtiTeksti)
-    uusiElementti.className = 'list-item';
-    document.querySelector('#itemList').appendChild(uusiElementti)
-}
-
-function iteminKlikkaus(event){
-    console.log('Klikkasit listaa')
-    console.log(event.target)
-    let parentti = event.target.parentElement
-    poistaItem(event.target, parentti)
-}
-
-function poistaItem(poistettava, elementinParentti){
-    elementinParentti.removeChild(poistettava);
-}
-
-function jarjesta(event){
-    console.log('järjestitlistan');
 }
