@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="munKaveriListaStyle.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <h1>Kaverilista</h1>
+
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <label for="fname">Syötä nimi:</label><br>
+                        <input type="text" class="form-control" id="nimi">
+
+                        <button type="button" class="button button1"
+                                onclick="lisaKaveri()">
+                            Lisää Kaveri </button>
+
+                        <button type="button" class="button button2"
+                                onclick="poistaKaveri()">
+                            Poista Kaveri </button>
+
+                        <button type="button" class="button button3"
+                                onclick="jarjestaKaveri()">
+                            Järjestä Kaverit </button>
+
+                    </div>
+                </div>
+
+                <ul id="lisaLista">
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="munKaveriListaScripti.js"></script>
+</body>
+</html>
