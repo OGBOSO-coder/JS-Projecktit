@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css.css">
+    <meta charset="utf-16" />
     <title></title>
 </head>
 <body>
@@ -14,8 +15,9 @@
 
                 <div class="input-group">
                     <div class="input-group-append">
+                        <form action="lomake" id="Lomake" method="post"></form>
                         <label for="fname">Käyttäjä ID:</label><br>
-                        <input type="text" class="form-control" id="ID" required>>
+                        <input type="text" class="form-control" minlength="5" id="ID" required>>
                         
 
                         <label for="fname">Salasana:</label><br>
@@ -35,10 +37,14 @@
                             <option>Suomi</option>
                             <option>Ruotsi</option>
 
-                          </select>
+                        </select>
+                        <button id="okButton" disabled>OK</button>
+                        <button type="button" class="button button1"
+                          onclick="Laheta()">
+                      Jatka </button>
 
 
-
+                    </form>
                     </div>
                 </div>
 
@@ -48,7 +54,7 @@
             </div>
         </div>
     </div>
-
+    <style src="css.css"></style>
     <script src="main.js"></script>
 </body>
 </html>
