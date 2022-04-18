@@ -1,50 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
     <title></title>
+    <link href="css.css" rel="stylesheet" />
 </head>
-<body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
+<body onload="document.rekisterointi.kayttajaid.focus();">
+    <h1>Rekiströitymislomake</h1>
 
-                <h1>Lomakkeen validointi</h1>
+    <form name='rekisterointi' onsubmit="return vLomake();">
 
-                <div class="input-group">
-                    <div class="input-group-append">
-                        <label for="fname">Käyttäjä ID:</label><br>
-                        <input type="text" class="form-control" id="ID">
+        <label for="kayttajaid">Käyttäjä ID: (min 6 merkkiä)</label>
+        <input type="text" name="kayttajaid" size="12" minlength="6" required/><br /><br />
+        <label for="salasana">Salasana:</label>
+        <input type="password" name="salasana" size="12" required/><br /><br />
+        <label for="ními">Nimi:</label>
+        <input type="text" name="nimi" size="50" required/><br /><br />
+        <label for="osoite">Osoite:</label>
+        <input type="text" name="osoite" size="50" required/><br /><br />
+        <label for="maa">Maa:</label>
 
-                        <label for="fname">Salasana:</label><br>
-                        <input type="text" class="form-control" id="Salasana">
-
-                        <label for="fname">Nimi:</label><br>
-                        <input type="text" class="form-control" id="nimi">
-
-                        <label for="fname">Osoite:</label><br>
-                        <input type="text" class="form-control" id="Osoite">
-
-                        <select style="width: 280px" id="Mobility" name="Mobility">
-                            <option selected="">Please Select</option>
-                            <option>Suomi</option>
-                            <option>Ruotsi</option>
-
-                          </select>
-
-
-
-                    </div>
-                </div>
-
-                <ul id="lisaLista">
-                </ul>
-
-            </div>
-        </div>
-    </div>
-
-    <script src="main.js"></script>
+        <select name="maa">
+            <option selected="" value="Default">>>Valitse maa<<</option>
+            <option value="Suomi">Suomi</option>
+            <option value="Syyria">Muu maa</option>
+        </select>
+        <br /><br />
+        <label for="postinumero">Postinumero:(min 5 merkkiä)</label>
+        <input type="text" name="postinumero" minlength="5" required/><br /><br />
+        <label for="sahkoposti">Sähköposti:</label>
+        <input type="text" name="sahkoposti" size="50" required/><br /><br />
+        <label id="sukupuoli">Sukupuoli:</label>
+        <input type="radio" name="msukupuoli" value="Mies" /><span>Mies</span>
+        <input type="radio" name="nsukupuoli" value="Nainen" /><span>Nainen</span><br /><br />
+        <label>Kieli:</label>
+        <input type="checkbox" name="suo" value="suo" checked /><span>Suomi</span>
+        <input type="checkbox" name="muu" value="muu" /><span>Muu kuin suomi</span><br /><br />
+        <label for="desc">Lisä tietoja:</label><br /><br />
+        <textarea name="desc" id="desc"></textarea><br /><br />
+        <input type="submit" name="laheta" value="Lähetä" />
+    </form>
+    <script src="validointiScript.js"></script>
 </body>
 </html>
