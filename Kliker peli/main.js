@@ -1,16 +1,16 @@
 var pisteet = 0;
 
-var Tehostehinta = 15;
+var TehosteHinta = 15;
 var teho = 0 ;
 
 function ostaTehoste () {
-    if (pisteet >= Tehostehinta) {
-        pisteet = pisteet - Tehostehinta;
+    if (pisteet >= TehosteHinta) {
+        pisteet = pisteet - TehosteHinta;
         teho = teho + 1;
-        Tehostehinta = Math.round(Tehostehinta * 1,15);
+        TehosteHinta = Math.round(TehosteHinta * 1,15);
 
         document.getElementById("pisteet").innerHTML= pisteet;
-        document.getElementById("tehostehinta").innerHTML = Tehostehinta;
+        document.getElementById("tehostehinta").innerHTML = TehosteHinta;
         document.getElementById("teho").innerHTML = teho;
     }
 }
