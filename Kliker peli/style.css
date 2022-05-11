@@ -1,0 +1,25 @@
+#clickButton {
+	width: 300px;
+	height: 300px;
+	transition-duration: 0.3s;
+	box-shadow: 0 4px 8px 0 #464646;
+	border-radius: 8px;
+	margin-top: 0px;
+	cursor: pointer; 
+}
+
+/* when you hover over it, box shadow color will change, and it'll rounder */
+#clickButton:hover {
+	transition-duration: 0.5s;
+	box-shadow: 0 4px 8px 0 #979797;
+	border-radius: 15px;
+}
+
+/* when you click it, box shadow color will change again, it'll be even more rounder, and will go a bit bigger */
+#clickButton:active {
+	box-shadow: 0 4px 8px 0 #666666;
+	border-radius: 20px;
+	-ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1); 
+}

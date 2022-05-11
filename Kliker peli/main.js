@@ -6,7 +6,7 @@ var teho = 1 ;
 var boomerit = 0;
 var boomerhinta = 20;
 
-var boomerit
+var voitto = 300;
 
 
 
@@ -45,6 +45,10 @@ function ostaboomer() {
 function LisaaPisteet(maara) {
     pisteet = pisteet + maara * teho;
     document.getElementById("pisteet").innerHTML= pisteet;
+    if (pisteet >= voitto) 
+	{
+		document.getElementById("Voitit pelin").innerText = "Voitit"
+	}
 }
 
 setInterval(function() {
@@ -52,3 +56,10 @@ setInterval(function() {
 	pisteet = pisteet + boomerit * 3;
 	document.getElementById("pisteet").innerHTML= pisteet;
 } , 3000);
+
+function increment() {
+	if (pisteet >= voitto) 
+	{
+		document.getElementById("Voitit pelin").innerText = "Voitit"
+	}
+}
