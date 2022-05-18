@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hedelmäpeli</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Hedelmäpeli</h1>
+        <p>Rahat: <span id="Rahat" >100</span> </p>
+        <button onclick="Pelaa()">Pelaa</button>
+        <button onclick="pyorayta()">Pyöräytä</button>
+    </header>
+
+    <table class="rullat">
+        <tbody>
+            <tr>
+                <td>
+                    <span id="Rulla1" class="rulla-arvo">-</span>
+                </td>
+                <td>
+                    <span id="Rulla2" class="rulla-arvo">-</span>
+                </td>
+                <td>
+                    <span id="Rulla3" class="rulla-arvo">-</span>
+                </td>
+                <td>
+                    <span id="Rulla4" class="rulla-arvo">-</span>
+                </td>
+
+
+
+            </tr>
+            <div>
+                <div class="imgContainer">
+                    <img id="slot1" src="Kuvat\appelsiini.png" height="200" width="200"/>
+                </div>
+                <div class="imgContainer">
+                    <img id="slot2" src="Kuvat\Kiiwi.png"  height="200" width="200"/>
+                </div>
+                <div class="imgContainer">
+                     <img id="slot3" src="Kuvat\Omena.png" height="200" width="200"/>
+                </div>
+                <div class="imgContainer">
+                     <img id="slot4" src="Kuvat\Meloni.png" height="200" width="200"/>
+                </div>
+            </div>
+        </tbody>
+    </table>
+    <div id="voitto-viesti" class="keskelle-viesti">
+        Voitit
+    </div>
+
+
+
+
+
+    
+
+</body>
+
+
+
+
+
+
+</html>

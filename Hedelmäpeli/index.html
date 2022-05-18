@@ -6,46 +6,72 @@
     <script src="main.js"></script>
 </head>
 
+<style>
+  p {
+    background-color: white;
+  }
+</style>
+
 <body>
-    <header>
-        <h1>Hedelmäpeli</h1>
-        <p>Rahat: <span id="Rahat" >100</span> </p>
-        <button onclick="Pelaa()">Pelaa</button>
-        <button onclick="pyorayta()">Pyöräytä</button>
-    </header>
+  <header>
+    <h1 class="page-title">HEDELMÄPELI<h1>
+  </header>
 
-    <table class="rullat">
-        <tbody>
-            <tr>
-                <td>
-                    <span id="Rulla1" class="rulla-arvo">-</span>
-                </td>
-                <td>
-                    <span id="Rulla2" class="rulla-arvo">-</span>
-                </td>
-                <td>
-                    <span id="Rulla3" class="rulla-arvo">-</span>
-                </td>
+<div class="wrapper">
+     <p>RAHAA: <span id="rahet">50</span>€</p>
+     <p>PANOS: <span id="panos_teksti">1</span>€</p>
+      <button onclick="aseta_panos(1)"><img src="Kuvat\main.png" height="100" width="100"/><h1>1€</h1></button>
+      &nbsp;&nbsp;
+      <button onclick="aseta_panos(2)"><img src="Kuvat\main.png" height="100" width="100"/><h1>2€</h1></button>
+      &nbsp;&nbsp;
+      <button onclick="aseta_panos(3)"><img src="Kuvat\main.png" height="100" width="100"/><h1>3€</h1></button>
+  </div>
 
 
-            </tr>
-        </tbody>
-    </table>
-    <div id="voitto-viesti" class="keskelle-viesti">
-        Voitit
+
+<div>
+      <div class="imgContainer">
+          <img id="slot1" src="kuvat\appelsiini.png" height="200" width="200"/>
+      </div>
+      <div class="imgContainer">
+          <img id="slot2" src="kuvat\Meloni.png"  height="200" width="200"/>
+      </div>
+      <div class="imgContainer">
+           <img id="slot3" src="kuvat\Kiiwi.png" height="200" width="200"/>
+      </div>
+      <div class="imgContainer">
+           <img id="slot4" src="kuvat\Omena.png" height="200" width="200"/>
+      </div>
+  </div>
+
+<div>
+      <div class="imgContainer2">
+          <input type="image" id="lukitus1" src="Kuvat\Padlock-15.png" height="150" width="150" hspace="5" onclick="lukitus(1)"/>
     </div>
+      <div class="imgContainer2">
+          <input type="image" id="lukitus2" src="Kuvat\Padlock-15.png" height="150" width="150" hspace="50" onclick="lukitus(2)"/>
+    </div>
+      <div class="imgContainer2">
+          <input type="image" id="lukitus3" src="Kuvat\Padlock-15.png" height="150" width="150" hspace="68" onclick="lukitus(3)"/>
+    </div>
+      <div class="imgContainer2">
+          <input type="image" id="lukitus4" src="Kuvat\Padlock-15.png" height="150" width="150" hspace="94" onclick="lukitus(4)"/>
+     </div>
 
+<div>
+  <div class="pelaanappula">
+    <br>
+  <input id="image_container" type="image" src="Kuvat\SeekPng.com_red-oval-png_902206.png" onclick="play()">
+  </div>
+</div>
 
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <img src="kuvat\main.png" id="modalkuva"/>
+  </div>
+</div>
 
-
-
-    
+<script src="main.js"></script>
 
 </body>
-
-
-
-
-
-
 </html>
