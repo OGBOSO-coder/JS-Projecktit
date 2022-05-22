@@ -152,10 +152,10 @@ function piilotaviesti() {
 }
 
 function tarkista_voitto() {
-    var kuva1 = document.getElementById("rulla1").src;
-    var kuva2 = document.getElementById("rulla2").src;
-    var kuva3 = document.getElementById("rulla3").src;
-    var kuva4 = document.getElementById("rulla4").src;
+    var kuva1 = document.getElementById("lukitus1").src;
+    var kuva2 = document.getElementById("lukitus2").src;
+    var kuva3 = document.getElementById("lukitus3").src;
+    var kuva4 = document.getElementById("lukitus4").src;
 
     if (kuva1 == kuva2 && kuva2 == kuva3 && kuva3 == kuva4) {
         var file_name = kuva1.split('/').pop();
@@ -221,7 +221,7 @@ function tarkista_voitto() {
               break;
             }
 
-            document.getElementById("Rahat").innerHTML = rahaa;
+            document.getElementById("rahet").innerHTML = rahaa;
            }
       }
       function aseta_panos(x) {
