@@ -20,7 +20,7 @@ var modal = document.getElementById('myModal');
 function play() {
   if (panos>rahaa) {
     modal.style.display = "block";
-    document.getElementById("modalkuva").src = "kuvat/rahet_loppu.png";
+    document.getElementById("modalkuva").src = "Kuvat/no-money-color-icon-free-charge-sign-cash-vector-27855581.jpg";
     document.getElementById("image_container").src = "kuvat/PELAA2.png";
     document.getElementById("image_container").disabled = true;
   }
