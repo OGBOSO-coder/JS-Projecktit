@@ -21,11 +21,10 @@ function play() {
   if (panos>rahaa) {
     modal.style.display = "block";
     document.getElementById("modalkuva").src = "Kuvat/no-money-color-icon-free-charge-sign-cash-vector-27855581.jpg";
-    document.getElementById("image_container").src = "kuvat/PELAA2.png";
     document.getElementById("image_container").disabled = true;
   }
   rahaa = rahaa - panos
-  document.getElementById("rahet").innerHTML = rahaa;
+  document.getElementById("rahat").innerHTML = rahaa;
 
   if (lock1 == true || lock2 == true || lock3 == true || lock4 == true){
     lukitseminen = true;
@@ -232,7 +231,7 @@ function tarkista_voitto() {
               break;
             }
 
-            document.getElementById("rahet").innerHTML = rahaa;
+            document.getElementById("rahat").innerHTML = rahaa;
            }
       }
       function aseta_panos(x) {
