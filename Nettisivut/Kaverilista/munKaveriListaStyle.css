@@ -1,0 +1,46 @@
+body {
+    margin: 50px;
+}
+
+h1{
+    color: darkcyan;
+    text-align: left;
+    font-family: Arial;
+}
+
+label{
+    color: darkseagreen;
+    font-family: Arial;
+}
+
+input{
+    border: groove;
+    margin-top: 5px;
+}
+
+.button1{
+    background-color: darkseagreen;
+    border: thin;
+    color: white;
+    padding: 0.5%;
+    width: 120px;
+    font-family: Arial;
+}
+
+.button2{
+    background-color: red;
+    border: thin;
+    color: white;
+    padding: 0.5%;
+    width: 120px;
+    font-family: Arial;
+}
+
+.button3{
+    background-color: orange;
+    border: thin;
+    color: white;
+    padding: 0.5%;
+    width: 120px;
+    font-family: Arial;
+}

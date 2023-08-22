@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+
+:root {
+    --teksti: #333;
+    --tausta: #eeeeee;
+    --teksti-vaalea: #dddd;
+    --dark: #333;
+    --teema: rgb(207, 146, 146);
+
+}
+
+*   {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: var(--tausta);
+    color: var(--teksti);
+}
+
+header {
+    background-color: var(--dark);
+    color: var(--teksti-vaalea);
+    padding: 20px;
+    height: 100px;
+    font-size: 1.5em;
+    position: fixed;
+    width: 100%;
+    top:0;
+    border-bottom: var(--teema) solid 5px;
+
+}
+
+header .logo {
+    float: left;
+    font-size: 2em;
+}
+
+header nav {
+    float: right;
+
+}
+
+header nav a {
+    display: inline-block;
+    font-size: 1.5em;
+    color: var(--teksti-vaalea);
+    text-decoration: none;
+    padding: 0.5em;
+
+}
+
+header nav a:hover {
+    color: var(--teema);
+    background-color: var(--teksti-vaalea);
+}
+
+main  {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    padding-top: 80px;
+}
+
+section {
+    max-width: 900px;
+    width: 70%;
+    margin: 20px auto;
+}
+
+.showcase {
+    font-size: 1.7em;
+    padding-top: 100px;
+    width: 100%;
+    height: 300px;
+    background-color: #333;
+}
+
+.showcase > div {
+    color: var(--teksti-vaalea);
+    max-width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.content {
+    font-size: 1.7em;
+    padding-top: 50px;
+    padding: 15px;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+    color: rgb(83, 77, 77);
+    text-align: top;
+    text-align: left;
+}
+
+.tuntkinnonosat a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(39, 38, 36);
+    color: var(--teksti-vaalea);
+    border: 1px solid var(--teksti);
+    padding: 20px;
+    border-radius: 10px;
+}
+footer {
+    background-color: var(--dark);
+    color: var(--teksti-vaalea);
+    padding: 30px 0;
+    text-align: center;
+}
+
