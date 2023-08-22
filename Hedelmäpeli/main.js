@@ -20,19 +20,29 @@ var modal = document.getElementById('myModal');
 function play() {
   if (panos>rahaa) {
     modal.style.display = "block";
-    document.getElementById("modalkuva").src = "kuvat/rahet_loppu.png";
-    document.getElementById("image_container").src = "kuvat/PELAA2.png";
+    document.getElementById("modalkuva").src = "Kuvat/no-money-color-icon-free-charge-sign-cash-vector-27855581.jpg";
     document.getElementById("image_container").disabled = true;
   }
   rahaa = rahaa - panos
-  document.getElementById("rahet").innerHTML = rahaa;
+  document.getElementById("rahat").innerHTML = rahaa;
 
   if (lock1 == true || lock2 == true || lock3 == true || lock4 == true){
     lukitseminen = true;
   } else {
     lukitseminen = false;
 }
-
+  if (lock1==false) {
+    changeImage("slot1");
+  }
+  if (lock2==false) {
+    changeImage("slot2");
+  }
+  if (lock3==false) {
+    changeImage("slot3");
+  }
+  if (lock4==false) {
+    changeImage("slot4");
+  }
 
 
 
@@ -44,23 +54,23 @@ function play() {
   lock4=false;
 
   if (lukitseminen==false) {
-    document.getElementById("lukitus1").src = "Kuvat/lock-icon-11.png";
+    document.getElementById("lukitus1").src = "Kuvat/Padlock-15.png";
     document.getElementById("lukitus1").disabled = false;
-    document.getElementById("lukitus2").src = "Kuvat/lock-icon-11.png";
+    document.getElementById("lukitus2").src = "Kuvat/Padlock-15.png";
     document.getElementById("lukitus2").disabled = false;
-    document.getElementById("lukitus3").src = "Kuvat/lock-icon-11.png";
+    document.getElementById("lukitus3").src = "Kuvat/Padlock-15.png";
     document.getElementById("lukitus3").disabled = false;
-    document.getElementById("lukitus4").src = "Kuvat/lock-icon-11.png";
+    document.getElementById("lukitus4").src = "Kuvat/Padlock-15.png";
     document.getElementById("lukitus4").disabled = false;
   }
   else {
-    document.getElementById("lukitus1").src = "kuvat/lukitus3.png";
+    document.getElementById("lukitus1").src = "Kuvat/lock-icon-11.png";
     document.getElementById("lukitus1").disabled = true;
-    document.getElementById("lukitus2").src = "kuvat/lukitus3.png";
+    document.getElementById("lukitus2").src = "Kuvat/lock-icon-11.png";
     document.getElementById("lukitus2").disabled = true;
-    document.getElementById("lukitus3").src = "kuvat/lukitus3.png";
+    document.getElementById("lukitus3").src = "Kuvat/lock-icon-11.png";
     document.getElementById("lukitus3").disabled = true;
-    document.getElementById("lukitus4").src = "kuvat/lukitus3.png";
+    document.getElementById("lukitus4").src = "Kuvat/lock-icon-11.png";
     document.getElementById("lukitus4").disabled = true;
   }
 }
@@ -113,27 +123,27 @@ function lukitus(slot_nro) {
     }
   }
 
-function getRandomNumber() {
+  function changeImage(slot) {
     var image = "";
     randInt = Math.floor((Math.random() * 5) + 1);
     console.log(randInt);
   
     switch(randInt) {
         case 1 :
-          image = "Kuvat\appelsiini.png";
+          image = "Kuvat/appelsiini.png";
           break;
         case 2 :
-          image = "Kuvat\Kiiwi.png";
+          image = "Kuvat/Kiiwi.png";
           break;
         case 3:
-          image = "Kuvat\Omena.png";
+          image = "Kuvat/Omena.png";
           break;
         case 4:
-          image = "Kuvat\Meloni.png";
+          image = "Kuvat/Meloni.png";
           break;
         case 5:
-            image = "Kuvat\Mansikka.png";
-            break;
+          image = "Kuvat/Mansikka.png";
+          break;
         }
   
     document.getElementById(slot).src = image;
@@ -152,10 +162,10 @@ function piilotaviesti() {
 }
 
 function tarkista_voitto() {
-    var kuva1 = document.getElementById("lukitus1").src;
-    var kuva2 = document.getElementById("lukitus2").src;
-    var kuva3 = document.getElementById("lukitus3").src;
-    var kuva4 = document.getElementById("lukitus4").src;
+    var kuva1 = document.getElementById("slot1").src;
+    var kuva2 = document.getElementById("slot2").src;
+    var kuva3 = document.getElementById("slot3").src;
+    var kuva4 = document.getElementById("slot4").src;
 
     if (kuva1 == kuva2 && kuva2 == kuva3 && kuva3 == kuva4) {
         var file_name = kuva1.split('/').pop();
@@ -221,7 +231,7 @@ function tarkista_voitto() {
               break;
             }
 
-            document.getElementById("rahet").innerHTML = rahaa;
+            document.getElementById("rahat").innerHTML = rahaa;
            }
       }
       function aseta_panos(x) {
