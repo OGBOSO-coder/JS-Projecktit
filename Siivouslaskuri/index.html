@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <link href="css.css" rel="stylesheet" />
+    <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siivouslaskuri</title>
+</head>
+<body>
+    <h1>Siivouslaskuri </h1>
+
+    <div class="container">
+
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <p>Value: <span id="sliderValue">50</span></p>
+    </div>
+    <fieldset>
+        <legend>Kuinka monta keraa viikossa?</legend>
+      
+        <div>
+          <input type="radio" id="huey" name="drone" value="huey" checked />
+          <label for="huey">Kerran</label>
+        </div>
+      
+        <div>
+          <input type="radio" id="dewey" name="drone" value="dewey" />
+          <label for="dewey">Kaksi</label>
+        </div>
+      
+        <div>
+          <input type="radio" id="louie" name="drone" value="louie" />
+          <label for="louie">Kolme</label>
+        </div>
+
+        <p>Value: <span id="nelio">50</span></p>
+
+      </fieldset>
+
+      <div class="slidecontainer">
+        <label for="nimi">Nimi:</label>
+        <input type="text" id="nimi" name="nimi"><br><br>
+    
+        <label for="email">Sähköposti:</label>
+        <input type="email" id="email" name="email"><br><br>
+    
+        <label for="viesti">Viesti:</label>
+        <textarea id="viesti" name="viesti"></textarea><br><br>
+    
+        <input type="submit" value="Lähetä">
+        </div>
+
+
+
+
+      <div id="g1difonedesk_c" style="width: 100%; display: flex; align-items: center; justify-content: center;"><script src="https://onedesk.netlify.app/embedLight.js"></script></div>
+
+
+</body>
+</html>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("sliderValue");
+var coefficient = 3; // Kertoimen arvo
+
+function updatePrice() {
+    var value = parseInt(slider.value);
+    var price = value * coefficient;
+    output.innerHTML = value + " x " + coefficient + " = " + price;
+}
+
+// Asetetaan alkuperäinen arvo ja lasketaan hinta
+slider.value = 50; // Voit vaihtaa alkuperäisen arvon tarpeidesi mukaan
+updatePrice();
+
+slider.oninput = function() {
+    updatePrice();
+}
+
+
+</script>

@@ -6,18 +6,6 @@ lomake.addEventListener('submit', uusiListaElementti)
 itemList.addEventListener('click', iteminKlikkaus)
 jarjestys.addEventListener('click', jarjesta)
 
-
-
-
-
-
-
-
-
-
-
-
-
 function uusiListaElementti(event){
 
     event.preventDefault()

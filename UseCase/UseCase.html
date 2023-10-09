@@ -1,0 +1,69 @@
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävien tekoa</title>
+    <link rel="stylesheet" href="UseCase.css">
+</head>
+
+
+
+
+<!-- Button to open the modal login form -->
+<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+<button onclick="document.getElementById('id02').style.display='block'">Äänestykset</button>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+  class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="Kuvat\img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'"
+  class="close" title="Close Modal">&times;</span>
+  <div class="container">
+    <label for="lisää"><b>Lisää äänestys</b></label>
+    <input type="text" placeholder="Nimi" name="uname" >
+    <button type="2">Lisää</button>
+    <label for="poista"><b>Poista äänestys</b></label>
+    
+    
+    <input type="password" placeholder="äänestyksen nimi" name="psw" >
+
+    <button type="1">Poista</button>
+
+    <form name="lomake" id="laheta">
+      <input type= "nimi" name="nimi" id="nimi">
+      <button id="lähetä">Lähetä</button>
+    </form>
+
+  </div>
+
+
+</div>
+
