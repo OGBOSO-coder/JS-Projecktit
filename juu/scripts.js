@@ -4,8 +4,8 @@ document.getElementById("lähetä").addEventListener("click", function (e) {
 
   // Tarkistetaan, ettei nimi ole tyhjä
   if (nimi.trim() === "") {
-      alert("Syötä äänestyksen nimi");
-      return;
+    alert("Syötä äänestyksen nimi");
+    return;
   }
 
   // Luo äänestys elementti
@@ -19,8 +19,8 @@ document.getElementById("lähetä").addEventListener("click", function (e) {
       <h2>${nimi}</h2>
       <p>Ääniä: <span class="äänien-laskuri">${äänet}</span></p>
       <p>Ei: <span class="ei-laskuri">${ei}</span></p>
-      <button class="äänestä">Äänestä</button>
-      <button class="Ei">Ei</button>
+      <button id = "aanesta" class="äänestä">Äänestä</button>
+      <button id = "ei" class="Ei">Ei</button>
       <button class="poista">Poista</button>
   `;
 
@@ -29,18 +29,49 @@ document.getElementById("lähetä").addEventListener("click", function (e) {
 
   // Lisää äänestys-elementin kuuntelijat (äänestys ja poisto)
   äänestysElementti.querySelector(".äänestä").addEventListener("click", function () {
-      äänet++; // Päivitä äänien laskuri äänestyksen sisällä
-      äänestysElementti.querySelector(".äänien-laskuri").textContent = äänet; // Päivitä näyttö
-      alert(`Äänestit äänestyksessä "${nimi}"`);
+    const kirjautunutKayttajaJSON = localStorage.getItem('kirjautunutKayttaja');
+    document.getElementById('aanesta').disabled = true;
+    document.getElementById('ei').disabled = true;
+    if (kirjautunutKayttajaJSON) {
+      const kirjautunutKayttaja = JSON.parse(kirjautunutKayttajaJSON);
+
+      // Tarkista, onko käyttäjä jo äänestänyt tässä äänestyksessä
+      if (kirjautunutKayttaja.voted) {
+        alert('Olet jo äänestänyt tätä äänestystä.');
+        return;
+      }
+      kirjautunutKayttaja.voted = true;
+      localStorage.setItem('kirjautunutKayttaja', JSON.stringify(kirjautunutKayttaja));
+    }
+
+    äänet++; // Päivitä äänien laskuri äänestyksen sisällä
+    äänestysElementti.querySelector(".äänien-laskuri").textContent = äänet; // Päivitä näyttö
+    alert(`Äänestit äänestyksessä "${nimi}"`);
   });
+
   äänestysElementti.querySelector(".Ei").addEventListener("click", function () {
-      ei++; // Päivitä äänien laskuri äänestyksen sisällä
-      äänestysElementti.querySelector(".ei-laskuri").textContent = ei; // Päivitä näyttö
-      alert(`Äänestit äänestyksessä "${nimi}"`);
+    const kirjautunutKayttajaJSON = localStorage.getItem('kirjautunutKayttaja');
+    document.getElementById('ei').disabled = true;
+    document.getElementById('aanesta').disabled = true;
+    if (kirjautunutKayttajaJSON) {
+      const kirjautunutKayttaja = JSON.parse(kirjautunutKayttajaJSON);
+
+      // Tarkista, onko käyttäjä jo äänestänyt tässä äänestyksessä
+      if (kirjautunutKayttaja.voted) {
+        alert('Olet jo äänestänyt tässä äänestyksessä.');
+        return;
+      }
+      kirjautunutKayttaja.voted = true;
+      localStorage.setItem('kirjautunutKayttaja', JSON.stringify(kirjautunutKayttaja));
+    }
+
+    ei++; // Päivitä äänien laskuri äänestyksen sisällä
+    äänestysElementti.querySelector(".ei-laskuri").textContent = ei; // Päivitä näyttö
+    alert(`Äänestit äänestyksessä "${nimi}"`);
   });
 
   äänestysElementti.querySelector(".poista").addEventListener("click", function () {
-      document.getElementById("äänestykset").removeChild(äänestysElementti);
+    document.getElementById("äänestykset").removeChild(äänestysElementti);
   });
 
   // Tyhjennä tekstikenttä
@@ -70,20 +101,24 @@ loginForm.addEventListener("submit", function(event) {
     if (user.rank === "admin") {
       alert('Kirjautuminen onnistui admin!');
       document.getElementById('id02').style.display = 'block';
-      document.getElementById('äänestysButton').disabled = false; // Tämä poistaa "disabled" -ominaisuuden
+      document.getElementById('äänestysButton').disabled = false;
+      document.getElementById('tyhjennaLocalStorage').disabled = false;
       localStorage.setItem('kirjautunutKayttaja', JSON.stringify(user));
+      document.getElementById('kirjaudu').disabled = true;
     } else {
       alert('Kirjautuminen onnistui!');
       localStorage.setItem('kirjautunutKayttaja', JSON.stringify(user));
+      document.getElementById('tyhjennaLocalStorage').disabled = false;
+      document.getElementById('kirjaudu').disabled = true;
+      
     }
 
     // Sulje kirjautumismodal
     document.getElementById('id01').style.display = 'none';
   } else {
-    //localStorage.clear();
-    alert('Kirjautuminen epäonnistui. Tarkista tunnuksesi.'); // Korvaa tämä toiminnolla kirjautumisen epäonnistuessa
+    alert('Kirjautuminen epäonnistui. Tarkista tunnuksesi.');
   }
-    const kirjautunutKayttajaJSON = localStorage.getItem('kirjautunutKayttaja');
+  const kirjautunutKayttajaJSON = localStorage.getItem('kirjautunutKayttaja');
   if (kirjautunutKayttajaJSON) {
     const kirjautunutKayttaja = JSON.parse(kirjautunutKayttajaJSON);
     // Voit käyttää kirjautuneen käyttäjän tietoja tarpeidesi mukaan
@@ -95,5 +130,9 @@ document.getElementById('tyhjennaLocalStorage').addEventListener('click', functi
   // Poista tallennettu käyttäjätieto Local Storagesta
   localStorage.removeItem('kirjautunutKayttaja');
   console.log('kirjautunutKayttaja tyhjennetty');
-  document.getElementById('äänestysButton').disabled = true; // Tämä poistaa "disabled" -ominaisuuden
+  document.getElementById('äänestysButton').disabled = true;
+  document.getElementById('tyhjennaLocalStorage').disabled = true;
+  document.getElementById('aanesta').disabled = false;
+  document.getElementById('ei').disabled = false;
+  document.getElementById('kirjaudu').disabled = false;
 });
