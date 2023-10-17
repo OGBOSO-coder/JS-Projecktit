@@ -54,3 +54,8 @@
     from {transform: scale(0)}
     to {transform: scale(1)}
   }
+
+  button:hover {
+    color: white;
+    background-color: #79746a;
+}

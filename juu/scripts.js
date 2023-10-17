@@ -1,3 +1,13 @@
+// Add a function to check the user's rank
+function isAdminUser() {
+  const kirjautunutKayttajaJSON = localStorage.getItem('kirjautunutKayttaja');
+  if (kirjautunutKayttajaJSON) {
+    const kirjautunutKayttaja = JSON.parse(kirjautunutKayttajaJSON);
+    return kirjautunutKayttaja.rank === 'admin';
+  }
+  return false;
+}
+
 document.getElementById("lähetä").addEventListener("click", function (e) {
   e.preventDefault();
   const nimi = document.getElementById("nimi").value;
@@ -21,7 +31,7 @@ document.getElementById("lähetä").addEventListener("click", function (e) {
       <p>Ei: <span class="ei-laskuri">${ei}</span></p>
       <button id = "aanesta" class="äänestä">Äänestä</button>
       <button id = "ei" class="Ei">Ei</button>
-      <button class="poista">Poista</button>
+      <button id= "poi"  class="poista">Poista</button>
   `;
 
   // Lisää äänestys elementti sivulle
@@ -70,8 +80,13 @@ document.getElementById("lähetä").addEventListener("click", function (e) {
     alert(`Äänestit äänestyksessä "${nimi}"`);
   });
 
+  // Modify the remove vote event listener to check the user's rank
   äänestysElementti.querySelector(".poista").addEventListener("click", function () {
-    document.getElementById("äänestykset").removeChild(äänestysElementti);
+    if (isAdminUser()) {
+      document.getElementById("äänestykset").removeChild(äänestysElementti);
+    } else {
+      alert("You don't have permission to remove this vote.");
+    }
   });
 
   // Tyhjennä tekstikenttä
@@ -110,7 +125,6 @@ loginForm.addEventListener("submit", function(event) {
       localStorage.setItem('kirjautunutKayttaja', JSON.stringify(user));
       document.getElementById('tyhjennaLocalStorage').disabled = false;
       document.getElementById('kirjaudu').disabled = true;
-      
     }
 
     // Sulje kirjautumismodal
