@@ -85,7 +85,7 @@ document.getElementById("lähetä").addEventListener("click", function (e) {
     if (isAdminUser()) {
       document.getElementById("äänestykset").removeChild(äänestysElementti);
     } else {
-      alert("You don't have permission to remove this vote.");
+      alert("Sinulla ei ole oikeuksia poistaa äänestystä.");
     }
   });
 
